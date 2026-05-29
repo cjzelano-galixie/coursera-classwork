@@ -10,14 +10,15 @@ const users = [
 //1
 // Return "Unknown" if value is null, undefined, or trims to "";
 // else return value.trim(). Must use trim() and typeof at least once.
-// function normalizeName(value) {
-//   if (value == null || value == undefined || value.trim() == "") {
-//     console.log("Unknown");
-//   } else {
-//     return value.trim();
-//     return typeof value;
-//   }
-// }
+function normalizeName(value) {
+  if (value === null || value === undefined) {
+    return "Unknown";
+  }
+  if (typeof value !== "string" || value.trim() === "") {
+    return "Unknown";
+  }
+  return value.trim();
+}
 
 //2
 // If not an array: throw new Error("scores must be an array")
@@ -42,12 +43,30 @@ function averageScore(scores) {
 }
 
 //3
-// If not a non-null object: throw new Error("user must be an object")Return { id, name, scoreCount, avg } using the rules:
+// If not a non-null object: throw new Error("user must be an object")
+// Return { id, name, scoreCount, avg } using the rules:
 // name: normalizeName(user.name)
 // scoreCount: number of scores; if missing/not array use 0
-// avg: averageScore(scores); if missing/not array treat as empty → nullMust use dot and bracket notation at least once each.
-// buildUserSummary(user);
+// avg: averageScore(scores); if missing/not array treat as empty → null
+// Must use dot and bracket notation at least once each.
+function buildUserSummary(user) {
+  if (user !== null && user === "object" && !Array.isArray(user)) {
+    return "User must be an object";
+  }
+  let id = user.id;
+  let name = normalizeName(user.name);
+  let userScores = user["scores"];
+  let scoreCount = 0;
+  if (Array.isArray(userScores)) {
+    scoreCount = userScores.length;
+  }
+  let avg = averageScore(user.scores);
 
+  let summary = "ID " + id + ", Name " + name + ", Score Count " + scoreCount;
+  +", Avg Score " + avg;
+
+  return summary;
+}
 //4
 // If not an array: throw new Error("userArray must be an array")
 // Return userArray.map(buildUserSummary)Must use map().
@@ -72,13 +91,13 @@ function averageScore(scores) {
 // 3) Why treat "" differently than null/undefined in normalizeName (conceptually)?
 
 //Required Test Calls:
-// console.log(normalizeName(" Ada ")); // expected:
-// console.log(normalizeName("   ")); // expected:
-// console.log(normalizeName(null)); // expected:
-// console.log(averageScore([10, 20, 30])); // expected:
-// console.log(averageScore([])); // expected:
-// console.log(buildUserSummary(users[0]));           // expected:
-// console.log(buildUserSummary(users[3]));           // expected:
+// console.log(normalizeName(" Ada ")); // expected: Ada
+// console.log(normalizeName("   ")); // expected: Unknown
+// console.log(normalizeName(null)); // expected: Unknown
+// console.log(averageScore([10, 20, 30])); // expected: 20
+// console.log(averageScore([])); // expected: null
+console.log(buildUserSummary(users[0])); // expected:
+console.log(buildUserSummary(users[3])); // expected:
 // console.log(safeSummarizeUsers(users).ok);         // expected:
 // console.log(getUserDisplayNameById(users, 105));   // expected:
 // console.log(safeSummarizeUsers("not an array"));   // expected:
