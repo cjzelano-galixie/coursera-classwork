@@ -96,8 +96,8 @@ function buildUserSummary(user) {
 // console.log(normalizeName(null)); // expected: Unknown
 // console.log(averageScore([10, 20, 30])); // expected: 20
 // console.log(averageScore([])); // expected: null
-console.log(buildUserSummary(users[0])); // expected:
-console.log(buildUserSummary(users[3])); // expected:
+// console.log(buildUserSummary(users[0])); // expected: 3
+// console.log(buildUserSummary(users[3])); // expected: 4
 // console.log(safeSummarizeUsers(users).ok);         // expected:
 // console.log(getUserDisplayNameById(users, 105));   // expected:
 // console.log(safeSummarizeUsers("not an array"));   // expected:
