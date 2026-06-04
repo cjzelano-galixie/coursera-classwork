@@ -35,3 +35,9 @@ function styleAndCelebrate(color, background, fontSize, txt, reason) {
 }
 
 styleAndCelebrate("ef7c8e", "fae8e0", "30px", "You made it!", "champions");
+
+// Expected values:
+// Congrats!
+// Happy birthday
+// You made it!
+// Congrats on the title!
