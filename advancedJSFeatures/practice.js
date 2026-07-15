@@ -314,3 +314,19 @@ const fruits1 = ["apples", "pears"];
 const fruits2 = [...fruits1];
 fruits1.pop();
 console.log(fruits1, "not", fruits2); //[ 'apples' ] not [ 'apples', 'pears' ]
+
+let obj = {
+  key: 1,
+  value: 4,
+};
+
+let output = { ...obj };
+output.value -= obj.key;
+
+console.log(output.value);
+
+function count(...basket) {
+  console.log(basket.length);
+}
+
+count(10, 9, 8, 7, 6);
