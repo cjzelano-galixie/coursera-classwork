@@ -1,7 +1,7 @@
 let canvas = document.getElementById("my_canvas");
 let context = canvas.getContext("2d");
 
-const speed = 4;
+const speed = 3;
 let position = 0;
 let moveSpeed = speed;
 let radius = 40;
