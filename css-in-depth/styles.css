@@ -1,0 +1,114 @@
+.text {
+  width: 300px;
+  border: 2px solid brown;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text:hover {
+  overflow: visible;
+}
+
+.text-clip {
+  width: 300px;
+  border: 2px solid brown;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.text-clip:hover {
+  overflow: visible;
+}
+
+.vert {
+  writing-mode: vertical-rl;
+}
+
+.one .wrap {
+  width: 100px;
+  overflow: hidden;
+  border: 2px solid brown;
+}
+
+.wrap {
+  word-wrap: break-word;
+}
+
+.shadow {
+  background-color: black;
+  text-shadow:
+    0 0 30px greenyellow,
+    0 0 5px white;
+}
+
+.glow {
+  color: rgb(237, 237, 151);
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 31px #fff,
+    0 0 55px rgb(255, 226, 4),
+    0 0 91px rgb(255, 226, 4),
+    0 0 100px rgb(255, 226, 4),
+    0 0 122px rgb(255, 226, 4),
+    0 0 140px rgb(255, 226, 4);
+}
+
+.a {
+  margin: 30px;
+  transform: skewX(20deg);
+  transition: 5s;
+}
+.b {
+  margin: 100px;
+  transform: rotate(20deg);
+  transition: 5s;
+}
+
+.box {
+  display: grid;
+  width: 240px;
+  height: 240px;
+  margin: 100px;
+  background-color: rgba(55, 255, 5, 0.5);
+  border-radius: 12px;
+  border: solid #6feb6f 4px;
+}
+
+.box:hover {
+  transform: rotateZ(60deg);
+  background-color: lightcoral;
+  opacity: 50%;
+  transition: 2s;
+}
+
+.clock {
+  display: grid;
+  width: 240px;
+  height: 240px;
+  margin: 100px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(640px, 0, 0);
+  }
+}
+
+#ball {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #62687f;
+
+  animation: bounce 2s linear;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
